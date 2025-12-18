@@ -5,7 +5,6 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	"math/rand"
 
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -49,7 +48,7 @@ func PrepareSQLDB(nbEntries int) (*sql.DB, error) {
 			"INSERT INTO product (name, category, price) VALUES (?, ?, ?)",
 			fmt.Sprintf("Product %d", i),
 			"sneaker",
-			rand.Intn(500))
+			42)
 		if err != nil {
 			return nil, err
 		}
