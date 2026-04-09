@@ -50,6 +50,11 @@ func PrepareSQLDB(nbEntries int) (*sql.DB, error) {
 			fmt.Sprintf("Product %d", i),
 			"sneaker",
 			rand.Intn(500))
+		_, err = db.Exec( // new
+			"INSERT INTO product (name, category, price) VALUES (?, ?, ?)",
+			fmt.Sprintf("Product %d", i),
+			"sneaker",
+			rand.Intn(500))
 		if err != nil {
 			return nil, err
 		}
